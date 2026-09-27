@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Korone - Roblox 2016</title>
+    <title>Korone - Roblox 2016 Revival</title>
     <style>
         * {
             margin: 0;
@@ -13,14 +13,137 @@
         }
 
         body {
-            background-color: #e3e3e3;
-            color: #333;
+            background-color: #000000;
+            color: #ffffff;
+            min-height: 100vh;
         }
 
-        /* Top Navigation Bar 2016 */
+        /* ----- VISTA AUTH (LOGIN / SIGNUP) ----- */
+        .auth-view {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .logo-container {
+            margin-bottom: 25px;
+            cursor: pointer;
+        }
+
+        .logo-img-main {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.7));
+        }
+
+        .auth-box {
+            background-color: #191919;
+            border: 1px solid #333333;
+            border-radius: 4px;
+            padding: 30px 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .auth-box h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            color: #cccccc;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 12px;
+            background-color: #2b2b2b;
+            border: 1px solid #444444;
+            border-radius: 3px;
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: #00a2ff;
+        }
+
+        .btn-action {
+            width: 100%;
+            padding: 12px;
+            background-color: #00a200;
+            border: none;
+            border-radius: 3px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+
+        .btn-action:hover {
+            background-color: #008800;
+        }
+
+        .auth-footer {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #888888;
+        }
+
+        .auth-footer a {
+            color: #00a2ff;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .error-msg {
+            color: #ff4d4d;
+            font-size: 13px;
+            margin-bottom: 15px;
+            text-align: left;
+            display: none;
+        }
+
+        /* ----- VISTA DASHBOARD (ROBLOX 2016 UI) ----- */
+        .dashboard-view {
+            display: none;
+            background-color: #e3e3e3;
+            color: #333333;
+            min-height: 100vh;
+        }
+
         header {
-            background-color: #e02424; /* Rosso Roblox 2016 */
-            height: 40px;
+            background-color: #e02424;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -34,18 +157,15 @@
             gap: 15px;
         }
 
-        .logo {
-            font-size: 20px;
-            font-weight: 900;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .dash-logo-img {
+            height: 32px;
             cursor: pointer;
+            filter: brightness(0) invert(1);
         }
 
         .nav-links {
             display: flex;
-            gap: 10px;
+            gap: 5px;
             list-style: none;
         }
 
@@ -54,12 +174,13 @@
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
-            padding: 5px 8px;
+            padding: 6px 10px;
             border-radius: 3px;
+            cursor: pointer;
         }
 
-        .nav-links a:hover {
-            background-color: rgba(0, 0, 0, 0.15);
+        .nav-links a:hover, .nav-links a.active {
+            background-color: rgba(0, 0, 0, 0.2);
         }
 
         .header-right {
@@ -71,39 +192,41 @@
         }
 
         .robux-container {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            background: rgba(0,0,0,0.1);
-            padding: 3px 8px;
+            background: rgba(0,0,0,0.2);
+            padding: 4px 10px;
             border-radius: 3px;
             font-weight: bold;
+            cursor: pointer;
+            user-select: none;
         }
 
-        .btn-green {
-            background-color: #00a200;
+        .robux-container:hover {
+            background: rgba(0,0,0,0.35);
+        }
+
+        .btn-logout {
+            background-color: #333333;
             color: white;
             border: none;
-            padding: 5px 12px;
-            font-size: 13px;
+            padding: 5px 10px;
+            font-size: 12px;
             font-weight: bold;
             border-radius: 3px;
             cursor: pointer;
         }
 
-        .btn-green:hover {
-            background-color: #008800;
+        .btn-logout:hover {
+            background-color: #555555;
         }
 
-        /* Main Layout */
         .container {
             display: flex;
             max-width: 1100px;
             margin: 15px auto;
             gap: 15px;
+            padding: 0 10px;
         }
 
-        /* Sidebar 2016 */
         .sidebar {
             width: 180px;
             background: white;
@@ -124,6 +247,7 @@
             font-size: 14px;
             font-weight: 600;
             border-radius: 3px;
+            cursor: pointer;
         }
 
         .sidebar li a:hover {
@@ -135,7 +259,6 @@
             color: white;
         }
 
-        /* Content Area */
         .main-content {
             flex: 1;
             background: white;
@@ -155,10 +278,17 @@
             color: #222;
         }
 
-        /* Game Cards Grid */
+        .section-view {
+            display: none;
+        }
+
+        .section-view.active-section {
+            display: block;
+        }
+
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 15px;
             margin-top: 15px;
         }
@@ -166,113 +296,474 @@
         .game-card {
             border: 1px solid #ddd;
             border-radius: 3px;
-            padding: 8px;
+            padding: 10px;
             background: #fafafa;
-            cursor: pointer;
-            transition: transform 0.1s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .game-card:hover {
-            transform: translateY(-2px);
             box-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
 
         .game-thumb {
             width: 100%;
             height: 120px;
-            background-color: #ccc;
+            background-color: #222;
+            color: #fff;
             border-radius: 2px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666;
             font-weight: bold;
+            font-size: 16px;
         }
 
         .game-title {
             font-size: 14px;
             font-weight: bold;
-            margin-top: 6px;
+            margin-top: 8px;
             color: #0055b3;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
         .game-stats {
             font-size: 11px;
             color: #666;
             margin-top: 4px;
+            margin-bottom: 8px;
+        }
+
+        .btn-play {
+            background-color: #00a200;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-play:hover {
+            background-color: #008800;
+        }
+
+        /* MODALE CARICAMENTO GIOCO */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+
+        .modal-card {
+            background: #191919;
+            color: white;
+            padding: 30px;
+            border-radius: 5px;
+            text-align: center;
+            width: 320px;
+            border: 1px solid #444;
+        }
+
+        .spinner {
+            border: 4px solid #333;
+            border-top: 4px solid #00a200;
+            border-radius: 50%;
+            width: 40px; height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .catalog-item {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            background: #fdfdfd;
+            border-radius: 3px;
+        }
+
+        .catalog-thumb {
+            width: 100%;
+            height: 90px;
+            background: #ccc;
+            margin-bottom: 5px;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #444;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header 2016 -->
-    <header>
-        <div class="header-left">
-            <div class="logo">KORONE</div>
-            <ul class="nav-links">
-                <li><a href="#">Games</a></li>
-                <li><a href="#">Catalog</a></li>
-                <li><a href="#">Develop</a></li>
-                <li><a href="#">Forum</a></li>
-            </ul>
-        </div>
-        <div class="header-right">
-            <div class="robux-container">R$ 1,250</div>
-            <span>Giuseppe</span>
-            <button class="btn-green">Play</button>
-        </div>
-    </header>
-
-    <!-- Main Body -->
-    <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <ul>
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Messages</a></li>
-                <li><a href="#">Friends</a></li>
-                <li><a href="#">Avatar</a></li>
-                <li><a href="#">Inventory</a></li>
-                <li><a href="#">Groups</a></li>
-            </ul>
-        </div>
-
-        <!-- Main Content -->
-        <div class="main-content">
-            <div class="welcome-box">
-                <h2>Hello, Guest!</h2>
-                <p style="color: #666; font-size: 13px;">Welcome back to Korone 2016 Revival.</p>
+    <!-- VISTA AUTENTICAZIONE -->
+    <div class="auth-view" id="auth-view">
+        <div class="auth-container">
+            <!-- LOGO KORONE ORIGINALE -->
+            <div class="logo-container" onclick="toggleAuth('login')">
+                <svg class="logo-img-main" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
+                    <g font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="75" fill="#FFFFFF" stroke="#8B5A2B" stroke-width="12" stroke-linejoin="round">
+                        <!-- Orecchia Sinistra -->
+                        <path d="M 85 45 C 70 25, 55 35, 65 55 Z" fill="#FFFFFF" stroke="#8B5A2B" stroke-width="8"/>
+                        <!-- Orecchia Destra -->
+                        <path d="M 125 40 C 135 18, 155 25, 140 48 Z" fill="#FFFFFF" stroke="#8B5A2B" stroke-width="8"/>
+                        <!-- Testo Kōrone -->
+                        <text x="50" y="105">Kōrone</text>
+                        <!-- Osso sulla K -->
+                        <g transform="translate(85, 95) rotate(-15)">
+                            <rect x="0" y="0" width="35" height="10" rx="4" fill="#FFFFFF" stroke="#8B5A2B" stroke-width="4"/>
+                            <circle cx="-2" cy="0" r="6" fill="#FFFFFF" stroke="#8B5A2B" stroke-width="3"/>
+                            <circle cx="-2" cy="10" r="6" fill="#FFFFFF" stroke="#8B5A2B" stroke-width="3"/>
+                            <circle cx="37" cy="0" r="6" fill="#FFFFFF" stroke="#8B5A2B" stroke-width="3"/>
+                            <circle cx="37" cy="10" r="6" fill="#FFFFFF" stroke="#8B5A2B" stroke-width="3"/>
+                        </g>
+                    </g>
+                </svg>
             </div>
 
-            <h3>Popular Games</h3>
-            <div class="games-grid">
-                <div class="game-card">
-                    <div class="game-thumb">Place 1</div>
-                    <div class="game-title">Natural Disaster Survival</div>
-                    <div class="game-stats">1,420 Playing</div>
+            <!-- LOGIN -->
+            <div class="auth-box" id="login-box">
+                <h2>Log in to Korone</h2>
+                <div class="error-msg" id="login-error">Invalid username or password!</div>
+                <form onsubmit="handleLogin(event)">
+                    <div class="input-group">
+                        <label for="login-username">Username</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn-action">Log In</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Don't have an account? <a onclick="toggleAuth('signup')">Sign Up</a></p>
+                    <p style="margin-top: 5px;"><a onclick="forgotPassword()">Forgot Password?</a></p>
                 </div>
-                <div class="game-card">
-                    <div class="game-thumb">Place 2</div>
-                    <div class="game-title">Work at a Pizza Place</div>
-                    <div class="game-stats">2,100 Playing</div>
-                </div>
-                <div class="game-card">
-                    <div class="game-thumb">Place 3</div>
-                    <div class="game-title">Town of Robloxia</div>
-                    <div class="game-stats">850 Playing</div>
-                </div>
-                <div class="game-card">
-                    <div class="game-thumb">Place 4</div>
-                    <div class="game-title">Sword Fights on the Heights</div>
-                    <div class="game-stats">530 Playing</div>
+            </div>
+
+            <!-- SIGN UP -->
+            <div class="auth-box" id="signup-box" style="display: none;">
+                <h2>Sign Up for Korone</h2>
+                <div class="error-msg" id="signup-error">Passwords do not match or user exists!</div>
+                <form onsubmit="handleSignUp(event)">
+                    <div class="input-group">
+                        <label for="signup-username">Username</label>
+                        <input type="text" id="signup-username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-confirm">Confirm Password</label>
+                        <input type="password" id="signup-confirm" required>
+                    </div>
+                    <button type="submit" class="btn-action">Sign Up</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Already have an account? <a onclick="toggleAuth('login')">Log In</a></p>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- VISTA DASHBOARD -->
+    <div class="dashboard-view" id="dashboard-view">
+        <header>
+            <div class="header-left">
+                <!-- LOGO HEADER -->
+                <svg class="dash-logo-img" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg" onclick="switchSection('home')">
+                    <g font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="80" fill="#FFFFFF">
+                        <text x="20" y="110">Kōrone</text>
+                    </g>
+                </svg>
+                <ul class="nav-links">
+                    <li><a id="nav-games" onclick="switchSection('games')">Games</a></li>
+                    <li><a id="nav-catalog" onclick="switchSection('catalog')">Catalog</a></li>
+                    <li><a id="nav-develop" onclick="switchSection('develop')">Develop</a></li>
+                    <li><a id="nav-forum" onclick="switchSection('forum')">Forum</a></li>
+                </ul>
+            </div>
+            <div class="header-right">
+                <div class="robux-container" onclick="addRobux()" title="Click to add R$">R$ <span id="robux-amount">1,250</span></div>
+                <span id="user-display-name">User</span>
+                <button class="btn-logout" onclick="handleLogout()">Log Out</button>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="sidebar">
+                <ul>
+                    <li id="side-home" class="active"><a onclick="switchSection('home')">Home</a></li>
+                    <li id="side-profile"><a onclick="switchSection('profile')">Profile</a></li>
+                    <li id="side-messages"><a onclick="switchSection('messages')">Messages</a></li>
+                    <li id="side-friends"><a onclick="switchSection('friends')">Friends</a></li>
+                    <li id="side-avatar"><a onclick="switchSection('avatar')">Avatar</a></li>
+                    <li id="side-inventory"><a onclick="switchSection('inventory')">Inventory</a></li>
+                </ul>
+            </div>
+
+            <div class="main-content">
+                
+                <!-- SEZIONE HOME / GAMES -->
+                <div class="section-view active-section" id="sec-home">
+                    <div class="welcome-box">
+                        <h2>Hello, <span class="user-placeholder">User</span>!</h2>
+                        <p style="color: #666; font-size: 13px;">Welcome back to Korone 2016 Revival.</p>
+                    </div>
+
+                    <h3>Popular Games</h3>
+                    <div class="games-grid">
+                        <div class="game-card">
+                            <div class="game-thumb">NDS</div>
+                            <div class="game-title">Natural Disaster Survival</div>
+                            <div class="game-stats">1,420 Playing</div>
+                            <button class="btn-play" onclick="launchGame('Natural Disaster Survival')">Play</button>
+                        </div>
+                        <div class="game-card">
+                            <div class="game-thumb">PIZZA</div>
+                            <div class="game-title">Work at a Pizza Place</div>
+                            <div class="game-stats">2,100 Playing</div>
+                            <button class="btn-play" onclick="launchGame('Work at a Pizza Place')">Play</button>
+                        </div>
+                        <div class="game-card">
+                            <div class="game-thumb">SFOTH</div>
+                            <div class="game-title">Sword Fights on Heights</div>
+                            <div class="game-stats">850 Playing</div>
+                            <button class="btn-play" onclick="launchGame('Sword Fights on Heights')">Play</button>
+                        </div>
+                        <div class="game-card">
+                            <div class="game-thumb">TOWN</div>
+                            <div class="game-title">Town of Robloxia</div>
+                            <div class="game-stats">530 Playing</div>
+                            <button class="btn-play" onclick="launchGame('Town of Robloxia')">Play</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEZIONE CATALOG -->
+                <div class="section-view" id="sec-catalog">
+                    <h2>Avatar Shop / Catalog</h2>
+                    <p style="color: #666; font-size: 13px; margin-bottom: 15px;">Browse hats and items for your avatar.</p>
+                    <div class="catalog-grid">
+                        <div class="catalog-item"><div class="catalog-thumb">Fedora</div><b>Classic Fedora</b><br><small>R$ 100</small></div>
+                        <div class="catalog-item"><div class="catalog-thumb">Visor</div><b>Red Visor</b><br><small>R$ 50</small></div>
+                        <div class="catalog-item"><div class="catalog-thumb">Hair</div><b>Shaggy Hair</b><br><small>R$ 75</small></div>
+                        <div class="catalog-item"><div class="catalog-thumb">Crown</div><b>Domino Crown</b><br><small>R$ 5,000</small></div>
+                    </div>
+                </div>
+
+                <!-- SEZIONE PROFILE -->
+                <div class="section-view" id="sec-profile">
+                    <h2>User Profile</h2>
+                    <br>
+                    <p><b>Username:</b> <span class="user-placeholder">User</span></p>
+                    <p><b>Joined:</b> September 2026</p>
+                    <p><b>Status:</b> Online on Korone Revival</p>
+                </div>
+
+                <!-- SEZIONE MESSAGES -->
+                <div class="section-view" id="sec-messages">
+                    <h2>Messages</h2>
+                    <p style="color: #666; margin-top: 10px;">You have no new messages.</p>
+                </div>
+
+                <!-- SEZIONE FRIENDS -->
+                <div class="section-view" id="sec-friends">
+                    <h2>Friends (0)</h2>
+                    <p style="color: #666; margin-top: 10px;">Your friends list is currently empty.</p>
+                </div>
+
+                <!-- SEZIONE AVATAR -->
+                <div class="section-view" id="sec-avatar">
+                    <h2>Avatar Editor</h2>
+                    <p style="color: #666; margin-top: 10px;">Customize your 2016 Korone Blocky Avatar.</p>
+                </div>
+
+                <!-- SEZIONE INVENTORY -->
+                <div class="section-view" id="sec-inventory">
+                    <h2>Inventory</h2>
+                    <p style="color: #666; margin-top: 10px;">Items and hats you own on Korone.</p>
+                </div>
+
+                <!-- SEZIONE DEVELOP -->
+                <div class="section-view" id="sec-develop">
+                    <h2>Develop / Games Creator</h2>
+                    <p style="color: #666; margin-top: 10px;">Upload your places and models for Korone 2016.</p>
+                </div>
+
+                <!-- SEZIONE FORUM -->
+                <div class="section-view" id="sec-forum">
+                    <h2>Korone Community Forum</h2>
+                    <p style="color: #666; margin-top: 10px;">Discuss updates and game strategies with players.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MODALE LAUNCHER GIOCO -->
+    <div class="modal-overlay" id="game-modal">
+        <div class="modal-card">
+            <h3 id="modal-game-name">Loading Game...</h3>
+            <div class="spinner"></div>
+            <p id="modal-status" style="font-size: 13px; color: #aaa;">Connecting to Korone Client 2016...</p>
+            <button class="btn-logout" style="margin-top: 15px;" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        let currentRobux = 1250;
+
+        if (!localStorage.getItem('korone_users')) {
+            localStorage.setItem('korone_users', JSON.stringify({}));
+        }
+
+        function toggleAuth(type) {
+            document.getElementById('login-error').style.display = 'none';
+            document.getElementById('signup-error').style.display = 'none';
+            if (type === 'signup') {
+                document.getElementById('login-box').style.display = 'none';
+                document.getElementById('signup-box').style.display = 'block';
+            } else {
+                document.getElementById('signup-box').style.display = 'none';
+                document.getElementById('login-box').style.display = 'block';
+            }
+        }
+
+        function forgotPassword() {
+            alert("Contact an administrator on the Korone Discord server to reset your password.");
+        }
+
+        function handleSignUp(e) {
+            e.preventDefault();
+            const user = document.getElementById('signup-username').value.trim();
+            const pass = document.getElementById('signup-password').value;
+            const confirmPass = document.getElementById('signup-confirm').value;
+            const errorElement = document.getElementById('signup-error');
+
+            if (pass !== confirmPass) {
+                errorElement.innerText = "Passwords do not match!";
+                errorElement.style.display = 'block';
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem('korone_users'));
+            if (users[user]) {
+                errorElement.innerText = "Username already taken!";
+                errorElement.style.display = 'block';
+                return;
+            }
+
+            users[user] = pass;
+            localStorage.setItem('korone_users', JSON.stringify(users));
+            loginUser(user);
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const user = document.getElementById('login-username').value.trim();
+            const pass = document.getElementById('login-password').value;
+            const errorElement = document.getElementById('login-error');
+
+            let users = JSON.parse(localStorage.getItem('korone_users'));
+
+            if (users[user] && users[user] === pass) {
+                loginUser(user);
+            } else {
+                errorElement.style.display = 'block';
+            }
+        }
+
+        function loginUser(username) {
+            localStorage.setItem('korone_session', username);
+            document.getElementById('user-display-name').innerText = username;
+            
+            document.querySelectorAll('.user-placeholder').forEach(el => {
+                el.innerText = username;
+            });
+            
+            document.getElementById('auth-view').style.display = 'none';
+            document.getElementById('dashboard-view').style.display = 'block';
+            switchSection('home');
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('korone_session');
+            document.getElementById('dashboard-view').style.display = 'none';
+            document.getElementById('auth-view').style.display = 'flex';
+        }
+
+        function switchSection(secId) {
+            document.querySelectorAll('.section-view').forEach(sec => {
+                sec.classList.remove('active-section');
+            });
+
+            document.querySelectorAll('.sidebar li').forEach(li => li.classList.remove('active'));
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+
+            const targetSec = document.getElementById('sec-' + secId) || document.getElementById('sec-home');
+            targetSec.classList.add('active-section');
+
+            const sideItem = document.getElementById('side-' + secId);
+            if (sideItem) sideItem.classList.add('active');
+
+            const navItem = document.getElementById('nav-' + secId);
+            if (navItem) navItem.classList.add('active');
+        }
+
+        function addRobux() {
+            currentRobux += 500;
+            document.getElementById('robux-amount').innerText = currentRobux.toLocaleString();
+            alert("Added R$ 500 to your account!");
+        }
+
+        function launchGame(gameName) {
+            document.getElementById('modal-game-name').innerText = gameName;
+            document.getElementById('modal-status').innerText = "Connecting to Korone Client 2016...";
+            document.getElementById('game-modal').style.display = 'flex';
+
+            setTimeout(() => {
+                document.getElementById('modal-status').innerText = "Starting Roblox 2016 Engine...";
+            }, 1500);
+
+            setTimeout(() => {
+                document.getElementById('modal-status').innerText = "Joining Place... Enjoy!";
+            }, 3000);
+        }
+
+        function closeModal() {
+            document.getElementById('game-modal').style.display = 'none';
+        }
+
+        window.onload = function() {
+            const activeSession = localStorage.getItem('korone_session');
+            if (activeSession) {
+                loginUser(activeSession);
+            }
+        };
+    </script>
 </body>
 </html>
