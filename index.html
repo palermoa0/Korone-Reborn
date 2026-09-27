@@ -1,10 +1,278 @@
 <!DOCTYPE html>
-<html lang"it">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-	<title>Korone</title>
-	<h1>the website is under development... W KORONE REBORN!!!</h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korone - Roblox 2016</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Source Sans Pro", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #e3e3e3;
+            color: #333;
+        }
+
+        /* Top Navigation Bar 2016 */
+        header {
+            background-color: #e02424; /* Rosso Roblox 2016 */
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 5px 8px;
+            border-radius: 3px;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-size: 13px;
+        }
+
+        .robux-container {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(0,0,0,0.1);
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .btn-green {
+            background-color: #00a200;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .btn-green:hover {
+            background-color: #008800;
+        }
+
+        /* Main Layout */
+        .container {
+            display: flex;
+            max-width: 1100px;
+            margin: 15px auto;
+            gap: 15px;
+        }
+
+        /* Sidebar 2016 */
+        .sidebar {
+            width: 180px;
+            background: white;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li a {
+            display: block;
+            padding: 8px 10px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 3px;
+        }
+
+        .sidebar li a:hover {
+            background-color: #eee;
+        }
+
+        .sidebar li.active a {
+            background-color: #e02424;
+            color: white;
+        }
+
+        /* Content Area */
+        .main-content {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .welcome-box {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-box h2 {
+            font-size: 24px;
+            color: #222;
+        }
+
+        /* Game Cards Grid */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .game-card {
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 8px;
+            background: #fafafa;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .game-thumb {
+            width: 100%;
+            height: 120px;
+            background-color: #ccc;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .game-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 6px;
+            color: #0055b3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .game-stats {
+            font-size: 11px;
+            color: #666;
+            margin-top: 4px;
+        }
+    </style>
 </head>
-<body style="background-color: white;">
+<body>
+
+    <!-- Header 2016 -->
+    <header>
+        <div class="header-left">
+            <div class="logo">KORONE</div>
+            <ul class="nav-links">
+                <li><a href="#">Games</a></li>
+                <li><a href="#">Catalog</a></li>
+                <li><a href="#">Develop</a></li>
+                <li><a href="#">Forum</a></li>
+            </ul>
+        </div>
+        <div class="header-right">
+            <div class="robux-container">R$ 1,250</div>
+            <span>Giuseppe</span>
+            <button class="btn-green">Play</button>
+        </div>
+    </header>
+
+    <!-- Main Body -->
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Friends</a></li>
+                <li><a href="#">Avatar</a></li>
+                <li><a href="#">Inventory</a></li>
+                <li><a href="#">Groups</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="welcome-box">
+                <h2>Hello, Guest!</h2>
+                <p style="color: #666; font-size: 13px;">Welcome back to Korone 2016 Revival.</p>
+            </div>
+
+            <h3>Popular Games</h3>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-thumb">Place 1</div>
+                    <div class="game-title">Natural Disaster Survival</div>
+                    <div class="game-stats">1,420 Playing</div>
+                </div>
+                <div class="game-card">
+                    <div class="game-thumb">Place 2</div>
+                    <div class="game-title">Work at a Pizza Place</div>
+                    <div class="game-stats">2,100 Playing</div>
+                </div>
+                <div class="game-card">
+                    <div class="game-thumb">Place 3</div>
+                    <div class="game-title">Town of Robloxia</div>
+                    <div class="game-stats">850 Playing</div>
+                </div>
+                <div class="game-card">
+                    <div class="game-thumb">Place 4</div>
+                    <div class="game-title">Sword Fights on the Heights</div>
+                    <div class="game-stats">530 Playing</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
